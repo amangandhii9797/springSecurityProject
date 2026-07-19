@@ -1,0 +1,15 @@
+package org.example.hospitalManagement_SpringSecurity.repos;
+
+import org.example.hospitalManagement_SpringSecurity.models.User;
+import org.example.hospitalManagement_SpringSecurity.models.enums.AuthProviderType;
+import org.springframework.data.jpa.repository.JpaRepository;
+
+import java.util.Optional;
+
+
+public interface UserRepository extends JpaRepository<User, Long> {
+
+    Optional<User> findByUsername(String username);
+
+    Optional<User> findByProviderIdAndProviderType(String providerId, AuthProviderType providerType);
+}
